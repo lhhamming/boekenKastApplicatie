@@ -1,5 +1,7 @@
 package com.hamming;
 
+import com.sun.org.apache.bcel.internal.generic.ObjectType;
+
 public class Boek {
     private int isbn;
     private String titel;
@@ -29,8 +31,18 @@ public class Boek {
         return this.titel;
     }
 
+    public int getIsbn(){
+        return this.isbn;
+    }
+
     @Override
     public String toString() {
         return "Titel: " + titel + " " + "paginas: " + paginas + " " +"isbn: " + isbn + " " + "Auteur: " + auteur + "\n";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Boek b = (Boek) obj;
+        return this.isbn == b.getIsbn() ? true : false;
     }
 }

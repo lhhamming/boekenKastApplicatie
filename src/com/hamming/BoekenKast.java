@@ -22,6 +22,15 @@ public class BoekenKast {
         }
     }
 
+    public boolean addBoek(Boek b){
+        if(b != null){
+            Boeken.add(b);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     @Override
     public String toString() {
         return Boeken.toString();
@@ -67,23 +76,26 @@ public class BoekenKast {
 
     public String getDoubleBooks(){
         StringBuilder sb = new StringBuilder();
-        int currentIndex = 0;
+        int tempIndex = 0;
         for (Boek b : Boeken){
-            Boek tempBoek = b;
-                for(int i = 0; i < Boeken.size() ; i++){
-                    if(i == currentIndex){
-                        //Do nothing
-                    }
-                    else{
-                        Boek toCompare = Boeken.get(i);
-                        if(tempBoek == toCompare){
-                            sb.append(b);
-                        }
+            for (int i = 0; i < Boeken.size(); i++) {
+                if(i != tempIndex){
+                    if(b.equals(Boeken.get(i))){
+                        sb.append(b);
                     }
                 }
-            currentIndex++;
-        }
 
+            }
+        }
         return sb.toString();
+    }
+
+    public Boek moveBook(int isbn) {
+        for (Boek b : Boeken){
+            if(b.getIsbn() == isbn){
+                return b;
+            }
+        }
+        return null;
     }
 }
