@@ -43,6 +43,6 @@ public class Boek {
     @Override
     public boolean equals(Object obj) {
         Boek b = (Boek) obj;
-        return this.isbn == b.getIsbn() ? true : false;
+        return this.isbn == b.getIsbn();
     }
 }

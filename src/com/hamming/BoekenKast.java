@@ -76,15 +76,24 @@ public class BoekenKast {
 
     public String getDoubleBooks(){
         StringBuilder sb = new StringBuilder();
+        ArrayList<Integer> comparedISBN = new ArrayList<>();
         int tempIndex = 0;
+        boolean hasBeenCompared = false;
         for (Boek b : Boeken){
             for (int i = 0; i < Boeken.size(); i++) {
                 if(i != tempIndex){
-                    if(b.equals(Boeken.get(i))){
-                        sb.append(b);
+                    for(int d = 0; d < comparedISBN.size(); i++){
+                        if(comparedISBN.get(i).equals(b)){
+                            hasBeenCompared = true;
+                        }
+                    }
+                    if(!hasBeenCompared){
+                        if(b.equals(Boeken.get(i))){
+                            sb.append(b);
+                        }
                     }
                 }
-
+                hasBeenCompared = false;
             }
         }
         return sb.toString();

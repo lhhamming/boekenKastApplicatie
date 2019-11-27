@@ -20,7 +20,7 @@ public class Main {
         System.out.println("The amount of books in the library are: " + b.getBooks());
         System.out.println("The amount of pages from every book combined is: " + b.getPages());
         System.out.println("The oldest Auther in the library is: " + b.getOldestAuther());
-        //System.out.println("Book that comes more than once: " + b.getDoubleBooks());
+        System.out.println("Book that comes more than once: " + b.getDoubleBooks());
         Boek bookToMove = b.moveBook(3);
         if(b1.addBoek(bookToMove)){
             System.out.println("Gelukt! boek toegevoegd");
